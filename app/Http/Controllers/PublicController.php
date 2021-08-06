@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
+    
     public function home()
     {
-        return view('welcome');
+        $breweries = $this->breweries;
+        
+        return view('welcome',compact('breweries'));
     }
 
     public function contact()
@@ -26,7 +29,7 @@ class PublicController extends Controller
         ]);
 
         // guardar los datos de contacto en el db
-
+        
         // enviar un correo de confirmacion
 
         // salir 

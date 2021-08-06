@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\BreweryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,6 @@ Route::get('/', [PublicController::class,'home'])->name('home');
 
 Route::get("/contact",[PublicController::class,'contact'])->name('contact');
 Route::post("/contact",[PublicController::class,'contactStore'])->name('contact.store');
+
+Route::post('/breweries',[BreweryController::class,'store'])->name('breweries.store');
+Route::get('/breweries',[BreweryController::class,'index'])->name('breweries.index');
