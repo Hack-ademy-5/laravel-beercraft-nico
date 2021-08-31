@@ -36,17 +36,19 @@
     }
   </style>
 
+
 </head>
 
 <body>
-<div style="margin-bottom: 100px;">
 @include('layouts._nav')
-</div>
-@if(session('message'))
-<div class="alert alert-success">{{session('message')}}</div>
-@endif
+
+<main id="main">
+  @if(session('message'))
+  <div class="alert alert-success">{{session('message')}}</div>
+  @endif
 
   @yield('content')
+</main>
 
 @include('layouts._footer')
 
