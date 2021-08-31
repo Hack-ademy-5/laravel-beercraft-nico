@@ -19,6 +19,7 @@ Route::get('/', [PublicController::class,'home'])->name('home');
 
 Route::get("/contact",[PublicController::class,'contact'])->name('contact');
 Route::post("/contact",[PublicController::class,'contactStore'])->name('contact.store');
+Route::get("/contacts",[PublicController::class,'contacts'])->name('contact.all');
 
 Route::post('/breweries',[BreweryController::class,'store'])->name('breweries.store');
 Route::get('/breweries',[BreweryController::class,'index'])->name('breweries.index');

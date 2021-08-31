@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublicController extends Controller
 {
@@ -29,11 +30,25 @@ class PublicController extends Controller
         ]);
 
         // guardar los datos de contacto en el db
+        DB::table('contacts')->insert([
+            'name'=>$misadatos['name'],
+            'email'=>$misadatos['email'],
+            'subject'=>$misadatos['subject'],
+            'message'=>$misadatos['message'],
+        ]);
         
         // enviar un correo de confirmacion
 
         // salir 
         return redirect()->route('home')->with('message',"Hemos recibido correctamente tu mensaje, pronto te contestaremos");
+    }
+
+    public function contacts()
+    {
+        // recuperar todos los contactos del db
+        $contacts = DB::table('contacts')->get();
+        // devolver la vista pasandole los contactos
+        return view('contacts',['contacts'=>$contacts]);
     }
 
 
