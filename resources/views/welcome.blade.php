@@ -86,14 +86,8 @@
                 @enderror
               </div>
               <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                <input type="text" class="form-control" name="city" id="city" placeholder="City" value="{{old('city')}}">
-                @error('city')
-                <div class="alert alert-danger">{{$message}}</div>
-                @enderror
-              </div>
-              <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                <input type="text" class="form-control" name="img" id="img" placeholder="Brewery Image" value="{{old('img')}}">
-                @error('img')
+                <input type="text" class="form-control" name="capacity" id="city" placeholder="Capacity" value="{{old('capacity')}}">
+                @error('capacity')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
               </div>

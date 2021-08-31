@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brewery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +11,7 @@ class PublicController extends Controller
     
     public function home()
     {
-        $breweries = $this->breweries;
+        $breweries = Brewery::all();
         
         return view('welcome',compact('breweries'));
     }
@@ -30,13 +31,7 @@ class PublicController extends Controller
         ]);
 
         // guardar los datos de contacto en el db
-        DB::table('contacts')->insert([
-            'name'=>$misadatos['name'],
-            'email'=>$misadatos['email'],
-            'subject'=>$misadatos['subject'],
-            'message'=>$misadatos['message'],
-        ]);
-        
+        DB::table('contacts')->insert($misadatos);
         // enviar un correo de confirmacion
 
         // salir 
@@ -46,7 +41,7 @@ class PublicController extends Controller
     public function contacts()
     {
         // recuperar todos los contactos del db
-        $contacts = DB::table('contacts')->get();
+        $contacts = DB::table('contacts')->get(); // select * from contacts where name = "n (SQL)
         // devolver la vista pasandole los contactos
         return view('contacts',['contacts'=>$contacts]);
     }

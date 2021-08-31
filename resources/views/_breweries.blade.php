@@ -11,10 +11,10 @@
         @foreach($breweries as $brewery)
         <div class="col-lg-4 col-md-6">
           <div class="member">
-            <div class="pic"><img src="{{$brewery['img']}}" class="img-fluid" alt=""></div>
+            <div class="pic"><img src="{{$brewery->img}}" class="img-fluid" alt=""></div>
             <div class="member-info">
-              <h4>{{$brewery['name']}}</h4>
-              <span>{{$brewery['city']}}</span>
+              <h4>{{$brewery->name}}</h4>
+              <span>{{$brewery->capacity}}</span>
               <div class="social">
                 
                 <a href=""><i class="bi bi-facebook"></i></a>

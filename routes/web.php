@@ -23,3 +23,4 @@ Route::get("/contacts",[PublicController::class,'contacts'])->name('contact.all'
 
 Route::post('/breweries',[BreweryController::class,'store'])->name('breweries.store');
 Route::get('/breweries',[BreweryController::class,'index'])->name('breweries.index');
+Route::get('/breweries/{id}',[BreweryController::class,'show'])->name('breweries.show');
